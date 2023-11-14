@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Att göra lista</title>
+</head>
+<body>
+    <!-- Lägga till din syssla -->
+    <header id="headerInput">
+        <input type="text" id="textfield" name="textfield" minlength="4" maxlength="25" size="20" placeholder="Din syssla"/>
+        <button id="addItemBtn">Lägg till</button>
+    </header>
+
+    <div id="toDoContainer">
+        <h2>Att göra</h2>
+            <ul id="toDoList"></ul>
+
+        <h2>Färdiga</h2>
+            <ul id="doneList"></ul>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
