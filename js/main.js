@@ -27,7 +27,7 @@ addToDoButton.addEventListener('click', function () {
     // Ändra knappen 'ändra' till 'spara' när jag ändrar slyssan 
     editButton.addEventListener('click', function(){
         // Byta ut texten på knappen och aktivera textfältet
-        if(editButton.innerText === 'Ändra'){
+        if (editButton.innerText === 'Ändra'){
             editButton.innerText = 'Spara'
             input.disabled = false;
         } else {
@@ -62,8 +62,6 @@ addToDoButton.addEventListener('click', function () {
             // Ta bort uppgiften från arrayen
             tasks = tasks.filter(task => task !== taskDescription);
         }
-
-
     });
 
     // Lägg in alla komponenter i listItem
