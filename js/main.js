@@ -22,24 +22,27 @@ addToDoButton.addEventListener('click', function () {
 
     // Skapa 'Ändra' knappen i att göra listan 
     let editButton = document.createElement('button');
-    editButton.textContent = 'Ändra';
+    editButton.innerText = 'Ändra';
+
+    // Ändra knappen 'ändra' till 'spara' när jag ändrar slyssan 
+    editButton.addEventListener('click', function(){
+        // Byta ut texten på knappen och aktivera textfältet
+        if (editButton.innerText === 'Ändra'){
+            editButton.innerText = 'Spara'
+            input.disabled = false;
+        } else {
+            editButton.innerText = 'Ändra';
+            input.disabled = true;
+        }
+    })
 
     // Skapa 'Färdiga' knappen i att göra listan 
     let doneButton = document.createElement('button');
-    doneButton.textContent = 'Färdig';
+    doneButton.innerText = 'Färdig';
 
     // Skapa Radera knappen i att göra listan 
     let deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Radera';
-
-    // Lägg till händelselyssnare för ändra-knappen
-    editButton.addEventListener('click', function(){
-        // Aktivera/avaktivera textfältet
-        // textfield.disabled = !textfield.disabled;  
-       //  --> Kolla denna för den verkar inte funka
-       input.disabled = false;
-
-    });
+    deleteButton.innerText = 'Radera';
 
     // Lägg till händelselyssnare för färdiga-knappen
     doneButton.addEventListener('click', function(){
@@ -59,8 +62,6 @@ addToDoButton.addEventListener('click', function () {
             // Ta bort uppgiften från arrayen
             tasks = tasks.filter(task => task !== taskDescription);
         }
-
-
     });
 
     // Lägg in alla komponenter i listItem
