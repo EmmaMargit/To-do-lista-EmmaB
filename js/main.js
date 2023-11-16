@@ -35,7 +35,8 @@ addToDoButton.addEventListener('click', function () {
     // Lägg till händelselyssnare för ändra-knappen
     editButton.addEventListener('click', function(){
         // Aktivera/avaktivera textfältet
-       // textfield.disabled = !textfield.disabled;
+        // textfield.disabled = !textfield.disabled;  
+       //  --> Kolla denna för den verkar inte funka
        input.disabled = false;
 
     });
