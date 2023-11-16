@@ -9,25 +9,26 @@ let tasks = [];
 
 addToDoButton.addEventListener('click', function () {
     // Hämta texten från input-fältet
+    // DENNA KOD ÄR JAG OSÄKER PÅ 
     let taskDescription = textfield.value;
 
     // Skapa ett nytt listelement
     let newToDo = document.createElement('li');
 
-    // Skapa ett textfält 
+    // Skapa ett textfält i att göra listan 
     let input = document.createElement('input')
     input.value = taskDescription;
     input.disabled = true; // Avaktivera input initialt
 
-    // Skapa 'Ändra' knappen
+    // Skapa 'Ändra' knappen i att göra listan 
     let editButton = document.createElement('button');
     editButton.textContent = 'Ändra';
 
-    // Skapa 'Färdiga' knappen
+    // Skapa 'Färdiga' knappen i att göra listan 
     let doneButton = document.createElement('button');
     doneButton.textContent = 'Färdig';
 
-    // Skapa Radera knappen 
+    // Skapa Radera knappen i att göra listan 
     let deleteButton = document.createElement('button');
     deleteButton.textContent = 'Radera';
 
@@ -48,7 +49,7 @@ addToDoButton.addEventListener('click', function () {
         newToDo.removeChild(doneButton);
     });
 
-    // Lägg till händelselyssnare för radera-knappen
+    // Lägg till händelselyssnare för radera-knappen i färdiga listan 
     deleteButton.addEventListener('click', function(){
         if (newToDo.parentNode === doneList || newToDo.parentNode === toDoList) {
             // Radera uppgiften
