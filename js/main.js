@@ -36,8 +36,6 @@ addToDoButton.addEventListener('click', function () {
         // Aktivera/avaktivera textfältet
        // textfield.disabled = !textfield.disabled;
        input.disabled = false;
-       
-
 
     });
 
