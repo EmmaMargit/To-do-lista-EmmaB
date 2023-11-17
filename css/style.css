@@ -1,6 +1,4 @@
-/* #toDoList {
-    border: 2px solid red
+#errorMessage {
+    color: red;
+    display: none;
 }
-#doneList {
-    border: 2px solid green
-} */
