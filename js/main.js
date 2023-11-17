@@ -10,42 +10,46 @@ let tasks = [];
 addToDoButton.addEventListener('click', function () {
     let taskDescription = textfield.value;
 
-    let newToDo = document.createElement('li');
-    let input = document.createElement('input');
-    input.value = taskDescription;
-    input.disabled = true;
+    // Inte skapa några tomma listor 
+    if (taskDescription.trim() !== "") { 
+        let newToDo = document.createElement('li');
+        let input = document.createElement('input');
+        input.value = taskDescription;
+        input.disabled = true;
 
-    let editButton = createButton('Ändra', function() {
-        if (editButton.innerText === 'Ändra') {
-            editButton.innerText = 'Spara';
-            input.disabled = false;
-        } else {
-            editButton.innerText = 'Ändra';
-            input.disabled = true;
-        }
-    });
+    
+        let editButton = createButton('Ändra', function() {
+            if (editButton.innerText === 'Ändra') {
+                editButton.innerText = 'Spara';
+                input.disabled = false;
+            } else {
+                editButton.innerText = 'Ändra';
+                input.disabled = true;
+            }
+        });
+    
+        let doneButton = createButton('Färdig', function() {
+            doneList.appendChild(newToDo);
+            newToDo.removeChild(doneButton);
+        });
 
-    let doneButton = createButton('Färdig', function() {
-        doneList.appendChild(newToDo);
-        newToDo.removeChild(doneButton);
-    });
+        let deleteButton = createButton('Radera', function() {
+            if (newToDo.parentNode === doneList || newToDo.parentNode === toDoList) {
+                newToDo.remove();
+                tasks = tasks.filter(task => task !== taskDescription);
+            }
+            doneButton.remove();
+        });
 
-    let deleteButton = createButton('Radera', function() {
-        if (newToDo.parentNode === doneList || newToDo.parentNode === toDoList) {
-            newToDo.remove();
-            tasks = tasks.filter(task => task !== taskDescription);
-        }
-        doneButton.remove();
-    });
+        newToDo.appendChild(input);
+        newToDo.appendChild(editButton);
+        newToDo.appendChild(doneButton);
+        newToDo.appendChild(deleteButton);
 
-    newToDo.appendChild(input);
-    newToDo.appendChild(editButton);
-    newToDo.appendChild(doneButton);
-    newToDo.appendChild(deleteButton);
+        toDoList.appendChild(newToDo);
 
-    toDoList.appendChild(newToDo);
-
-    textfield.value = "";
+        textfield.value = "";
+    }
 });
 
 function createButton(text, clickHandler) {
@@ -55,6 +59,45 @@ function createButton(text, clickHandler) {
     return button;
 }
 
+// if (taskDescription.trim() !== "") {
+//     let newToDo = document.createElement('li');
+//     let input = document.createElement('input');
+//     input.value = taskDescription;
+//     input.disabled = true;
+
+//     let editButton = createButton('Ändra', function () {
+//         if (editButton.innerText === 'Ändra') {
+//             editButton.innerText = 'Spara';
+//             input.disabled = false;
+//         } else {
+//             editButton.innerText = 'Ändra';
+//             input.disabled = true;
+//         }
+//     });
+
+//     let doneButton = createButton('Färdig', function () {
+//         doneList.appendChild(newToDo);
+//         newToDo.removeChild(doneButton);
+//     });
+
+//     let deleteButton = createButton('Radera', function () {
+//         if (newToDo.parentNode === doneList || newToDo.parentNode === toDoList) {
+//             newToDo.remove();
+//             tasks = tasks.filter(task => task !== taskDescription);
+//         }
+//         doneButton.remove();
+//     });
+
+//     newToDo.appendChild(input);
+//     newToDo.appendChild(editButton);
+//     newToDo.appendChild(doneButton);
+//     newToDo.appendChild(deleteButton);
+
+//     toDoList.appendChild(newToDo);
+
+//     tasks.push(taskDescription); // Lägg till uppgiften i arrayen
+//     textfield.value = "";
+// }
 
 
 
